@@ -32,12 +32,19 @@ const LoginPage = () => {
     });
     console.log(data, error);
     if (data) {
-      router.push("/");
       toast.success("Login Successful");
+      router.push("/");
     } else if (error) {
       toast.error("Something was wrong!");
       return;
     }
+  };
+
+  const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    toast.success("Login with Google");
   };
 
   return (
@@ -103,7 +110,7 @@ const LoginPage = () => {
           </Link>
         </h1>
         <hr className="w-40 sm:w-50 md:w-60 lg:w-80 mx-auto" />
-        <Button variant="outline" className={"w-full py-6 text-lg"}>
+        <Button onClick={handleGoogleLogin} variant="outline" className={"w-full py-6 text-lg"}>
           <ImGoogle color="blue" /> Login with Google
         </Button>
       </Form>

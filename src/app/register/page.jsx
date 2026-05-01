@@ -38,13 +38,20 @@ const RegisterPage = () => {
     });
     console.log(data, error);
     if(data){
-      router.push('/');
       toast.success("Register Successful");
+      router.push('/');
     }else if(error){
       toast.error("Something was wrong!");
       return;
     }
   };
+
+  const handleGoogleLogin = async()=>{
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    toast.success("Login with Google");
+  }
 
   return (
     <div className="w-[90%] md:container mx-auto py-25">
@@ -128,7 +135,7 @@ const RegisterPage = () => {
           </Link>
           <hr className="w-20 sm:w-25 md:w-30  mx-auto" />
         </div>
-        <Button variant="outline" className={"w-full py-6 text-lg"}>
+        <Button onClick={handleGoogleLogin} variant="outline" className={"w-full py-6 text-lg"}>
           <ImGoogle color="blue" /> Register with Google
         </Button>
       </Form>
