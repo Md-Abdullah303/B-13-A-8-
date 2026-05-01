@@ -12,22 +12,15 @@ const Banner = () => {
             Qurbani Animals
           </h1>
           <p className="text-lg md:text-xl mb-6 max-w-xl text-gray-200">
-            Find the best animal for your Qurbani. This web site your help you for that.
+            Find the best animal for your Qurbani. This web site your help you
+            for that.
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4">
-            <Link href="/all-animals">
-              <Button className="bg-linear-to-r from-green-500 via-blue-500 bg-green-500">
-                Generate Now
-              </Button>
-            </Link>
-
-            <Link href="#">
-              <Button variant="outline" className="text-white">
-                View Pricing
-              </Button>
-            </Link>
-          </div>
+          <Link href="/all-animals">
+            <Button variant="secondary" className="">
+              Browse All Animals
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
