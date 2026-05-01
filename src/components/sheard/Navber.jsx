@@ -10,7 +10,7 @@ const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const user = false;
   return (
-    <nav className="sticky top-0 z-40 shadow-sm bg-background/70 backdrop-blur-lg">
+    <nav className="sticky top-0 z-40 shadow-sm bg-background/90 backdrop-blur-lg">
       <header className="flex items-center justify-between w-[85%] md:container mx-auto p-4 ">
         <div className="flex items-center gap-8">
           <button

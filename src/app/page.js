@@ -1,3 +1,4 @@
+import Banner from "@/components/homepage/Banner";
 import { Card } from "@heroui/react";
 import Image from "next/image";
 
@@ -7,7 +8,7 @@ export default async function Home() {
   // console.log(resData);
   return (
     <div className="">
-      homapage
+      <Banner/>
     </div>
   );
 }
