@@ -7,8 +7,11 @@ import {
   Form,
   Input,
   Label,
+  TextArea,
   TextField,
 } from "@heroui/react";
+import { FcOk } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const CowForm = () => {
   const onSubmit = (e) => {
@@ -17,9 +20,10 @@ const CowForm = () => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const phone = e.target.phone.value;
+    const textArea = e.target.textArea.value;
 
-    console.log(name, email, phone);
-
+    toast.success("Booking was Confirmed ✅");
+    e.target.reset();
   };
 
   return (
@@ -35,7 +39,7 @@ const CowForm = () => {
         {/* name */}
         <Label>Name</Label>
         <Input
-          isRequired
+          required
           name="name"
           className="w-full outline-none"
           placeholder="Enter your name"
@@ -44,7 +48,7 @@ const CowForm = () => {
         {/* email */}
         <TextField
           className={"w-full outline-none"}
-          isRequired
+          required
           name="email"
           type="email"
           validate={(value) => {
@@ -63,21 +67,21 @@ const CowForm = () => {
         <Label>Phone</Label>
         <Input
           name="phone"
-          isRequired
+          required
           type="text"
           className="w-full outline-none"
           placeholder="Enter your Phone number"
         />
 
-        <div className="flex gap-2">
-          <Button type="submit">
-            <Check />
-            Submit
-          </Button>
-          <Button type="reset" variant="secondary">
-            Reset
-          </Button>
-        </div>
+        <TextField className={" w-full max-h-34"} required name="textArea">
+          <Label>Address</Label>
+          <TextArea required className={"h-30"} placeholder="Enter your address" />
+        </TextField>
+
+        <Button className={'w-full p-6'} type="submit">
+          <Check />
+          Submit
+        </Button>
       </Form>
     </div>
   );

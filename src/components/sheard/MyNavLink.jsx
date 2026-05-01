@@ -9,7 +9,7 @@ const MyNavLink = ({href, children}) => {
     return (
         <Link 
         className={`${isActive && 'border-b border-green-500 text-green-500'}
-         hover:bg-slate-100
+         hover:border-b hover:border-gray-400
         `}
         href={href}>
             {children}

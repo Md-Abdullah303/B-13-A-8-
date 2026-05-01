@@ -1,6 +1,12 @@
 import CowCard from "@/components/UI/CowCard";
 import React from "react";
 
+
+export const metadata = {
+  title: "Qurbani Market - All animals",
+  description: "",
+};
+
 const AllAnimalsPage = async () => {
   const res = await fetch("https://b-13-a-8-api.onrender.com/animals");
   const animals = await res.json();

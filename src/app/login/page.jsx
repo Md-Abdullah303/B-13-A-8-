@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoginPage = () => {
     return (
-        <div>
+        <div className='w-[90%] md:container mx-auto py-20'>
             log in page
         </div>
     );

@@ -3,6 +3,11 @@ import { Card } from "@heroui/react";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Qurbani Market  - animal details",
+  description: "",
+};
+
 const AnimalsDetailsPage = async ({ params }) => {
   const { id } = await params;
   const res = await fetch("https://b-13-a-8-api.onrender.com/animals");
@@ -29,12 +34,12 @@ const AnimalsDetailsPage = async ({ params }) => {
       <div className="w-[90%] md:container mx-auto py-18 space-y-3 grid grid-cols-12 md:gap-9 gap-4 items-start">
         {/* animal details */}
         <Card className="border col-span-8  rounded-lg space-y-3.5">
-          <div className="relative w-full h-100">
+          <div className="relative w-full h-120">
             <Image
               src={image}
               alt={name}
               fill
-              className="object-center rounded-xl"
+              className="object-center object-cover rounded-xl"
             />
           </div>
           {/* animal details info */}
