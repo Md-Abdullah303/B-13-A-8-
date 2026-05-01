@@ -5,7 +5,7 @@ import React from "react";
 
 const CowCard = ({ animal }) => {
   const { image, name, price, type, breed, id } = animal;
-  console.log(animal);
+//   console.log(animal);
   return (
     <Card className="border shadow-sm duration-300 cursor-pointer hover:-translate-y-3 space-y-2">
       <div className="relative w-full aspect-square">
