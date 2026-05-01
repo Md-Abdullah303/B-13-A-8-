@@ -1,16 +1,17 @@
 "use client";
 import MyNavLink from "./MyNavLink";
-import { Link, Button } from "@heroui/react";
 import logo from "@/assets/logo.png";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@heroui/react";
 
 const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const user = false;
   return (
     <nav className="sticky top-0 z-40 shadow-sm bg-background/70 backdrop-blur-lg">
-      <header className="flex items-center justify-between w-[85%] md:container mx-auto py-3 px-4">
+      <header className="flex items-center justify-between w-[85%] md:container mx-auto p-4 ">
         <div className="flex items-center gap-8">
           <button
             className="md:hidden"
@@ -56,11 +57,11 @@ const Navber = () => {
 
         {/* login , register */}
         <ul className="items-center gap-3 hidden md:flex">
-          <li className="list-none py-2 px-3 text-xl">
-            <Link href={"/login"}>Login</Link>
+          <li>
+            <Link href={"/login"}><Button variant="outline">Login</Button></Link>
           </li>
-          <li className="list-none py-2 px-3 text-xl">
-            <Link href={"/register"}>Register</Link>
+          <li>
+            <Link href={"/register"}><Button>Register</Button></Link>
           </li>
         </ul>
       </header>
@@ -68,20 +69,20 @@ const Navber = () => {
         <div className="border-t border-separator md:hidden">
           <ul className="flex flex-col gap-2 p-4">
             <li>
-              <Link href={"/"}>Home</Link>
+              <MyNavLink href={"/"}>Home</MyNavLink>
             </li>
             <li>
-              <Link href={"/all-animals"}>All Animals</Link>
+              <MyNavLink href={"/all-animals"}>All Animals</MyNavLink>
             </li>
           </ul>
           
           {/* login , register */}
-          <ul className="items-start flex border-t px-4 py-2 flex-col md:hidden">
-            <li className="list-none  text-xl">
-              <Link href={"/login"}>Login</Link>
+          <ul className="items-start flex px-4 py-2 flex-row md:hidden gap-2">
+            <li>
+              <Link href={"/login"}><Button variant="outline">Login</Button></Link>
             </li>
-            <li className="list-none text-xl">
-              <Link href={"/register"}>Register</Link>
+            <li>
+              <Link href={"/register"}><Button>Register</Button></Link>
             </li>
           </ul>
         </div>
