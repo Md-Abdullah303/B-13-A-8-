@@ -12,10 +12,13 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { ImGoogle } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+  const router = useRouter()
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,6 +37,13 @@ const RegisterPage = () => {
       callbackURL: "/",
     });
     console.log(data, error);
+    if(data){
+      router.push('/');
+      toast.success("Register Successful");
+    }else if(error){
+      toast.error("Something was wrong!");
+      return;
+    }
   };
 
   return (

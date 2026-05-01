@@ -31,9 +31,9 @@ const AnimalsDetailsPage = async ({ params }) => {
 //   console.log(animal);
   return (
     <div className=" bg-blue-100">
-      <div className="w-[90%] md:container mx-auto py-18 space-y-3 grid grid-cols-12 md:gap-9 gap-4 items-start">
+      <div className="w-[90%] md:container mx-auto py-18 space-y-3 grid grid-cols-12 lg:gap-9 md:gap-6 gap-4 items-start">
         {/* animal details */}
-        <Card className="border col-span-8  rounded-lg space-y-3.5">
+        <Card className="border col-span-12 md:col-span-6 lg:col-span-8  rounded-lg space-y-3.5">
           <div className="relative w-full h-120">
             <Image
               src={image}
@@ -90,7 +90,7 @@ const AnimalsDetailsPage = async ({ params }) => {
         </Card>
 
         {/* animal order form */}
-        <div className="col-span-4">
+        <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <CowForm/>
         </div>
       </div>

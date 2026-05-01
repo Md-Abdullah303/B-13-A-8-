@@ -6,8 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const Navber = () => {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     data: session,
@@ -15,6 +17,12 @@ const Navber = () => {
     error, //error object
   } = authClient.useSession();
   const user = session?.user;
+
+  const handleLogout = async () => {
+    await authClient.signOut();
+    router.push("/");
+  };
+
   // console.log(user);
   return (
     <nav className="sticky top-0 z-40 shadow-sm bg-background/90 backdrop-blur-lg">
@@ -75,7 +83,9 @@ const Navber = () => {
                   className="object-center object-cover"
                 />
               </div>
-              <Button onClick={async()=> await authClient.signOut()} variant="danger-soft">Logout</Button>
+              <Button onClick={() => handleLogout()} variant="danger-soft">
+                Logout
+              </Button>
             </div>
           ) : (
             <div className="items-center gap-3 hidden md:flex">
@@ -106,16 +116,35 @@ const Navber = () => {
 
           {/* login , register */}
           <ul className="items-start flex px-4 py-2 flex-row md:hidden gap-2">
-            <li>
-              <Link href={"/login"}>
-                <Button variant="outline">Login</Button>
-              </Link>
-            </li>
-            <li>
-              <Link href={"/register"}>
-                <Button>Register</Button>
-              </Link>
-            </li>
+            {user ? (
+              <div className="flex items-center gap-5">
+                <div className="border rounded-full w-10 overflow-hidden relative h-10">
+                  <Image
+                    src={user?.image}
+                    alt={user?.name}
+                    width={40}
+                    height={40}
+                    className="object-center object-cover"
+                  />
+                </div>
+                <Button onClick={() => handleLogout()} variant="danger-soft">
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <div className="items-center gap-3 flex md:hidden">
+                <li>
+                  <Link href={"/login"}>
+                    <Button variant="outline">Login</Button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"/register"}>
+                    <Button>Register</Button>
+                  </Link>
+                </li>
+              </div>
+            )}
           </ul>
         </div>
       )}

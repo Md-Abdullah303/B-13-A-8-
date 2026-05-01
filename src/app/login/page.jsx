@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { ImGoogle } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const onSubmit = async (e) => {
@@ -30,6 +31,13 @@ const LoginPage = () => {
       callbackURL: "/",
     });
     console.log(data, error);
+    if (data) {
+      router.push("/");
+      toast.success("Login Successful");
+    } else if (error) {
+      toast.error("Something was wrong!");
+      return;
+    }
   };
 
   return (
