@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const FeaturedCowCard = ({ cow }) => {
-  console.log(cow);
+  // console.log(cow);
   return (
     <Card className="border rounded-lg duration-300 hover:-translate-y-3 cursor-pointer hover:shadow-xl">
       <div className="relative w-full aspect-square">

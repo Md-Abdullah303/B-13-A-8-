@@ -5,10 +5,17 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
 
 const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const user = false;
+  const {
+    data: session,
+    isPending, //loading state
+    error, //error object
+  } = authClient.useSession();
+  const user = session?.user;
+  // console.log(user);
   return (
     <nav className="sticky top-0 z-40 shadow-sm bg-background/90 backdrop-blur-lg">
       <header className="flex items-center justify-between w-[85%] md:container mx-auto p-4 ">
@@ -57,12 +64,33 @@ const Navber = () => {
 
         {/* login , register */}
         <ul className="items-center gap-3 hidden md:flex">
-          <li>
-            <Link href={"/login"}><Button variant="outline">Login</Button></Link>
-          </li>
-          <li>
-            <Link href={"/register"}><Button>Register</Button></Link>
-          </li>
+          {user ? (
+            <div className="flex items-center gap-5">
+              <div className="border rounded-full w-10 overflow-hidden relative h-10">
+                <Image
+                  src={user?.image}
+                  alt={user?.name}
+                  width={40}
+                  height={40}
+                  className="object-center object-cover"
+                />
+              </div>
+              <Button onClick={async()=> await authClient.signOut()} variant="danger-soft">Logout</Button>
+            </div>
+          ) : (
+            <div className="items-center gap-3 hidden md:flex">
+              <li>
+                <Link href={"/login"}>
+                  <Button variant="outline">Login</Button>
+                </Link>
+              </li>
+              <li>
+                <Link href={"/register"}>
+                  <Button>Register</Button>
+                </Link>
+              </li>
+            </div>
+          )}
         </ul>
       </header>
       {isMenuOpen && (
@@ -75,14 +103,18 @@ const Navber = () => {
               <MyNavLink href={"/all-animals"}>All Animals</MyNavLink>
             </li>
           </ul>
-          
+
           {/* login , register */}
           <ul className="items-start flex px-4 py-2 flex-row md:hidden gap-2">
             <li>
-              <Link href={"/login"}><Button variant="outline">Login</Button></Link>
+              <Link href={"/login"}>
+                <Button variant="outline">Login</Button>
+              </Link>
             </li>
             <li>
-              <Link href={"/register"}><Button>Register</Button></Link>
+              <Link href={"/register"}>
+                <Button>Register</Button>
+              </Link>
             </li>
           </ul>
         </div>
