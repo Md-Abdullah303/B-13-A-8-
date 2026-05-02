@@ -4,7 +4,7 @@ import logo from "@/assets/logo.png";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -22,10 +22,10 @@ const Navber = () => {
   const handleLogout = async () => {
     await authClient.signOut();
     router.push("/");
-    toast.info("Successful Logout!")
+    toast.info("Successful Logout!");
   };
 
-  // console.log(user);
+  
   return (
     <nav className="sticky top-0 z-40 shadow-sm bg-background/90 backdrop-blur-lg">
       <header className="flex items-center justify-between w-[85%] md:container mx-auto p-4 ">
@@ -79,14 +79,16 @@ const Navber = () => {
         <ul className="items-center gap-3 hidden md:flex">
           {user ? (
             <div className="flex items-center gap-5">
-              <Link href={'/profile'} className="border rounded-full w-10 overflow-hidden relative h-10">
-                <Image
-                  src={user?.image}
-                  alt={user?.name}
-                  width={40}
-                  height={40}
-                  className="object-center object-cover"
-                />
+              <Link
+                href={"/my-profile"}
+                className="border rounded-full w-10 overflow-hidden relative h-10"
+              >
+                <Avatar className="border flex items-center justify-center rounded-full overflow-hidden w-10 h-10">
+                  <Avatar.Image alt={user?.name} src={user?.image} />
+                  <Avatar.Fallback className="text-lg md:text-xl text-blue-600 ">
+                    {user?.name.toString()[0]}
+                  </Avatar.Fallback>
+                </Avatar>
               </Link>
               <Button onClick={() => handleLogout()} variant="danger-soft">
                 Logout
@@ -126,7 +128,10 @@ const Navber = () => {
           <ul className="items-start flex px-4 py-2 flex-row md:hidden gap-2">
             {user ? (
               <div className="flex items-center gap-5">
-                <Link href={'/profile'} className="border rounded-full w-10 overflow-hidden relative h-10">
+                <Link
+                  href={"/my-profile"}
+                  className="border rounded-full w-10 overflow-hidden relative h-10"
+                >
                   <Image
                     src={user?.image}
                     alt={user?.name}
