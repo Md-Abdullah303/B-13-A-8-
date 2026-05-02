@@ -69,6 +69,9 @@ const Navber = () => {
             <li>
               <MyNavLink href={"/all-animals"}>All Animals</MyNavLink>
             </li>
+            <li>
+              <MyNavLink href={"/profile"}>Profile</MyNavLink>
+            </li>
           </ul>
         </div>
 
@@ -113,6 +116,9 @@ const Navber = () => {
             </li>
             <li>
               <MyNavLink href={"/all-animals"}>All Animals</MyNavLink>
+            </li>
+            <li>
+              <MyNavLink href={"/profile"}>Profile</MyNavLink>
             </li>
           </ul>
 
