@@ -18,7 +18,8 @@ const UpdateForm = ({ user }) => {
       name,
     });
 
-    toast.success("Profile was updated.")
+    toast.success("Profile was updated ✅")
+    e.target.reset();
   };
   return (
     <div>
