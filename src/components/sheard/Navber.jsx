@@ -67,10 +67,10 @@ const Navber = () => {
               <MyNavLink href={"/"}>Home</MyNavLink>
             </li>
             <li>
-              <MyNavLink href={"/all-animals"}>All Animals</MyNavLink>
+              <MyNavLink href={"/animals"}>All Animals</MyNavLink>
             </li>
             <li>
-              <MyNavLink href={"/profile"}>Profile</MyNavLink>
+              <MyNavLink href={"/my-profile"}>Profile</MyNavLink>
             </li>
           </ul>
         </div>
@@ -115,10 +115,10 @@ const Navber = () => {
               <MyNavLink href={"/"}>Home</MyNavLink>
             </li>
             <li>
-              <MyNavLink href={"/all-animals"}>All Animals</MyNavLink>
+              <MyNavLink href={"/animals"}>All Animals</MyNavLink>
             </li>
             <li>
-              <MyNavLink href={"/profile"}>Profile</MyNavLink>
+              <MyNavLink href={"/my-profile"}>Profile</MyNavLink>
             </li>
           </ul>
 
