@@ -16,7 +16,7 @@ const Banner = () => {
             for that.
           </p>
 
-          <Link href="/all-animals">
+          <Link href="/animals">
             <Button variant="secondary" className="">
               Browse All Animals
             </Button>
