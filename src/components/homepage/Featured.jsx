@@ -6,7 +6,7 @@ const Featured = async() => {
     const resData = await res.json();
     // console.log(resData);
     return (
-        <div className='w-[90%] md:container mx-auto my-20  px-8'>
+        <div className='w-[90%] md:container mx-auto my-20  px-3 md:px-10'>
             <h1 className='text-2xl md:text-4xl font-bold mb-4'>Featured Animals</h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">

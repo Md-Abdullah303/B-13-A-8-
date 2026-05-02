@@ -22,7 +22,7 @@ const UpdateForm = ({ user }) => {
     e.target.reset();
   };
   return (
-    <div>
+    <div className="px-3">
       <form
         onSubmit={onsubmit}
         className="border border-gray-300 p-6 md:p-10 rounded-xl space-y-5 shadow lg:w-130 w-100"
