@@ -76,7 +76,7 @@ const Navber = () => {
         <ul className="items-center gap-3 hidden md:flex">
           {user ? (
             <div className="flex items-center gap-5">
-              <div className="border rounded-full w-10 overflow-hidden relative h-10">
+              <Link href={'/profile'} className="border rounded-full w-10 overflow-hidden relative h-10">
                 <Image
                   src={user?.image}
                   alt={user?.name}
@@ -84,7 +84,7 @@ const Navber = () => {
                   height={40}
                   className="object-center object-cover"
                 />
-              </div>
+              </Link>
               <Button onClick={() => handleLogout()} variant="danger-soft">
                 Logout
               </Button>
@@ -120,7 +120,7 @@ const Navber = () => {
           <ul className="items-start flex px-4 py-2 flex-row md:hidden gap-2">
             {user ? (
               <div className="flex items-center gap-5">
-                <div className="border rounded-full w-10 overflow-hidden relative h-10">
+                <Link href={'/profile'} className="border rounded-full w-10 overflow-hidden relative h-10">
                   <Image
                     src={user?.image}
                     alt={user?.name}
@@ -128,7 +128,7 @@ const Navber = () => {
                     height={40}
                     className="object-center object-cover"
                   />
-                </div>
+                </Link>
                 <Button onClick={() => handleLogout()} variant="danger-soft">
                   Logout
                 </Button>
